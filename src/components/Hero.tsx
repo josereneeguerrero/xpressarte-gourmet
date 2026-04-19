@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 import ReservarButton from "@/components/ReservarButton";
 
 export default function Hero() {
@@ -17,40 +18,31 @@ export default function Hero() {
       ref={ref}
       className="relative h-screen min-h-[680px] flex items-center justify-center overflow-hidden"
     >
-      {/* Parallax background layers */}
+      {/* Parallax background — photo + overlays */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 -top-20">
-        {/* Base deep black */}
-        <div className="absolute inset-0 bg-[#050505]" />
-
-        {/* Warm gold radial glow — bottom center */}
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="XpressArte Gourmet Cuisine"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* Dark base overlay for readability */}
+        <div className="absolute inset-0 bg-[#050505]/60" />
+        {/* Warm gold glow from bottom */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% 110%, rgba(229,178,26,0.18) 0%, rgba(229,178,26,0.06) 40%, transparent 70%)",
+              "radial-gradient(ellipse 80% 50% at 50% 110%, rgba(229,178,26,0.22) 0%, transparent 65%)",
           }}
         />
-
-        {/* Warm amber top-right accent */}
+        {/* Extra darkening on top for text contrast */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 50% 40% at 80% 10%, rgba(180,100,10,0.12) 0%, transparent 60%)",
-          }}
-        />
-
-        {/* Diagonal texture */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              -45deg,
-              #E5B21A 0px,
-              #E5B21A 1px,
-              transparent 1px,
-              transparent 70px
-            )`,
+              "linear-gradient(to bottom, rgba(5,5,5,0.35) 0%, transparent 40%, rgba(5,5,5,0.2) 100%)",
           }}
         />
       </motion.div>
