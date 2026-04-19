@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, CalendarDays } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import ReservarButton from "@/components/ReservarButton";
 
 const WA_LINK =
   "https://wa.me/50488738716?text=Hola%20XpressArte%2C%20me%20gustar%C3%ADa%20reservar%20una%20mesa%20para%20...%20persona(s)%20el%20d%C3%ADa%20...%20a%20las%20....%20Mi%20nombre%20es%20...";
@@ -68,15 +69,10 @@ export default function Navbar() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-4">
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <ReservarButton
             className="hidden sm:inline-flex items-center gap-2 border border-[#E5B21A]/40 text-[#E5B21A] hover:bg-[#E5B21A]/10 text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200"
-          >
-            <CalendarDays size={15} />
-            Reservar Mesa
-          </a>
+            iconSize={15}
+          />
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden text-[#F9FAFB] p-2"

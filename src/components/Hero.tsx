@@ -2,10 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, CalendarDays } from "lucide-react";
-
-const WA_LINK =
-  "https://wa.me/50488738716?text=Hola%20XpressArte%2C%20me%20gustar%C3%ADa%20reservar%20una%20mesa%20para%20...%20persona(s)%20el%20d%C3%ADa%20...%20a%20las%20....%20Mi%20nombre%20es%20...";
+import { ChevronDown } from "lucide-react";
+import ReservarButton from "@/components/ReservarButton";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -117,15 +115,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <ReservarButton
             className="inline-flex items-center justify-center gap-2 border border-[#E5B21A]/40 text-[#E5B21A] hover:bg-[#E5B21A]/10 font-semibold px-10 py-4 rounded-full text-base transition-all duration-200"
-          >
-            <CalendarDays size={18} />
-            Reservar Mesa
-          </a>
+            iconSize={18}
+          />
           <a
             href="#menu"
             className="inline-flex items-center justify-center gap-2 border border-[#E5B21A]/30 hover:border-[#E5B21A]/70 text-[#F9FAFB]/80 hover:text-[#E5B21A] font-light px-10 py-4 rounded-full text-base transition-all duration-200 backdrop-blur-sm"
