@@ -36,10 +36,10 @@ function PlatilloCard({ dish, index }: { dish: SanityDish; index: number }) {
       style={{ background: "linear-gradient(180deg, #141208 0%, #0f0f0f 100%)" }}
     >
       {/* Image */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      <div className="relative w-full aspect-square overflow-hidden">
         {dish.image?.asset ? (
           <Image
-            src={urlFor(dish.image).width(600).height(450).url()}
+            src={urlFor(dish.image).width(600).height(600).fit("crop").crop("center").url()}
             alt={dish.image.alt ?? dish.title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-700"

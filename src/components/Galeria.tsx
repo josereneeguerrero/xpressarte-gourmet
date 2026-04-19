@@ -2,87 +2,63 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { getGalleryImages, type SanityGalleryImage } from "@/sanity/queries";
+import { getGalleryImages } from "@/sanity/queries";
 import { urlFor } from "@/sanity/image";
 import ReservarButton from "@/components/ReservarButton";
+import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 
-
-const FALLBACK_LABELS = [
-  { label: "El salón principal", hint: "Foto horizontal — ambiente general" },
-  { label: "Detalle de mesa", hint: "Foto vertical — close-up" },
-  { label: "Vista panorámica", hint: "Foto horizontal — vista del nivel" },
-  { label: "Cocina en acción", hint: "Foto cuadrada" },
-  { label: "Noche en XpressArte", hint: "Foto vertical — ambiente nocturno" },
+const FALLBACK_IMAGES = [
+  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=640&q=80", alt: "Ambiente restaurante" },
+  { src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=640&q=80", alt: "Salón principal" },
+  { src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=640&q=80", alt: "Cocina en acción" },
+  { src: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=640&q=80", alt: "Mesa preparada" },
+  { src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=640&q=80", alt: "Vista del restaurante" },
+  { src: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=640&q=80", alt: "Detalle de mesa" },
 ];
 
-function Placeholder({ label, hint, index }: { label: string; hint: string; index: number }) {
-  return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
-      <span className="text-[#E5B21A]/25 text-[10px] tracking-[0.25em] uppercase text-center">{label}</span>
-      <span className="text-[#9CA3AF]/15 text-[9px] tracking-widest text-center">{hint}</span>
-      <span className="absolute -bottom-3 -right-2 text-[80px] font-bold leading-none text-[#E5B21A]/4 select-none pointer-events-none" style={{ fontFamily: "var(--font-playfair)" }}>
-        0{index + 1}
-      </span>
-    </div>
-  );
-}
-
-function SlotBase({ className, delay, children }: { className: string; delay: number; children: React.ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative overflow-hidden rounded-2xl group ${className}`}
-      style={{ background: "linear-gradient(135deg, #1a1508 0%, #111108 60%, #0a0a0a 100%)" }}
-    >
-      <div className="absolute top-0 left-0 w-14 h-px bg-gradient-to-r from-[#E5B21A]/50 to-transparent z-10" />
-      <div className="absolute top-0 left-0 w-px h-14 bg-gradient-to-b from-[#E5B21A]/50 to-transparent z-10" />
-      <div className="absolute bottom-0 right-0 w-14 h-px bg-gradient-to-l from-[#E5B21A]/30 to-transparent z-10" />
-      <div className="absolute inset-0 bg-[#E5B21A]/0 group-hover:bg-[#E5B21A]/4 transition-all duration-500 z-10" />
-      {children}
-    </motion.div>
-  );
-}
-
 export default function Galeria() {
-  const [images, setImages] = useState<SanityGalleryImage[]>([]);
+  const [sliderImages, setSliderImages] = useState(FALLBACK_IMAGES);
 
   useEffect(() => {
-    getGalleryImages().then(setImages);
+    getGalleryImages().then((data) => {
+      if (data.length >= 3) {
+        setSliderImages(
+          data.map((img) => ({
+            src: urlFor(img.image).width(640).height(640).fit("crop").crop("center").url(),
+            alt: img.image.alt ?? img.caption ?? "XpressArte Gourmet",
+          }))
+        );
+      }
+    });
   }, []);
 
-  const slots = [0, 1, 2, 3].map((i) => images[i] ?? null);
-
-  function renderSlotContent(img: SanityGalleryImage | null, index: number) {
-    if (img?.image?.asset) {
-      return (
-        <Image
-          src={urlFor(img.image).width(800).height(600).url()}
-          alt={img.image.alt ?? img.caption ?? `Foto ${index + 1}`}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
-        />
-      );
-    }
-    const fb = FALLBACK_LABELS[index];
-    return <Placeholder label={fb.label} hint={fb.hint} index={index} />;
-  }
-
   return (
-    <section className="py-16 md:py-28 px-4 md:px-6" style={{ background: "linear-gradient(180deg, #080808 0%, #0a0905 50%, #080808 100%)" }}>
-      <div className="max-w-7xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-14">
+    <section
+      className="py-16 md:py-28 overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #080808 0%, #0a0905 50%, #080808 100%)" }}
+    >
+      {/* Header */}
+      <div className="px-4 md:px-6 max-w-7xl mx-auto mb-10 md:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+        >
           <div>
-            <p className="text-[#E5B21A] text-xs tracking-[0.3em] uppercase mb-5 font-medium">Tercer nivel · Plaza San Blas</p>
-            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-light text-[#F9FAFB]" style={{ fontFamily: "var(--font-playfair)" }}>
+            <p className="text-[#E5B21A] text-xs tracking-[0.3em] uppercase mb-5 font-medium">
+              Tercer nivel · Plaza San Blas
+            </p>
+            <h2
+              className="font-heading text-3xl sm:text-5xl md:text-6xl font-light text-[#F9FAFB]"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
               Nuestro <em className="not-italic text-[#E5B21A] font-semibold">Ambiente</em>
             </h2>
             <p className="text-[#9CA3AF]/80 mt-4 max-w-md text-base font-light leading-relaxed">
-              Un espacio diseñado para que la experiencia vaya más allá del plato. Cada rincón tiene su propio carácter.
+              Un espacio diseñado para que la experiencia vaya más allá del plato.
+              Cada rincón tiene su propio carácter.
             </p>
           </div>
           <ReservarButton
@@ -90,38 +66,17 @@ export default function Galeria() {
             iconSize={16}
           />
         </motion.div>
-
-        {/* Editorial grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3" style={{ height: "clamp(300px, 80vw, 600px)" }}>
-          <SlotBase className="row-span-2 col-span-1" delay={0}>{renderSlotContent(slots[0], 0)}</SlotBase>
-          <SlotBase className="col-span-1 row-span-1" delay={0.1}>{renderSlotContent(slots[1], 1)}</SlotBase>
-          <SlotBase className="col-span-1 row-span-1 hidden md:block" delay={0.15}>{renderSlotContent(slots[2], 2)}</SlotBase>
-          <SlotBase className="col-span-1 md:col-span-2 row-span-1" delay={0.2}>{renderSlotContent(slots[3], 3)}</SlotBase>
-        </div>
-
-        {/* Strip 5 */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.25 }}
-          className="mt-3 relative overflow-hidden rounded-2xl group"
-          style={{ height: "clamp(100px, 12vw, 160px)", background: "linear-gradient(135deg, #1a1508 0%, #0f0f0f 100%)" }}>
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E5B21A]/30 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E5B21A]/20 to-transparent" />
-          <div className="absolute inset-0 bg-[#E5B21A]/0 group-hover:bg-[#E5B21A]/3 transition-all duration-500" />
-          {images[4]?.image?.asset ? (
-            <Image
-              src={urlFor(images[4].image).width(1400).height(320).url()}
-              alt={images[4].image.alt ?? "Ambiente XpressArte"}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-[#E5B21A]/20 text-[10px] tracking-[0.3em] uppercase">{FALLBACK_LABELS[4].label} · {FALLBACK_LABELS[4].hint}</span>
-              <span className="absolute right-6 bottom-0 text-[70px] font-bold leading-none text-[#E5B21A]/4 select-none" style={{ fontFamily: "var(--font-playfair)" }}>05</span>
-            </div>
-          )}
-        </motion.div>
-
       </div>
+
+      {/* Auto-slider — full bleed */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
+        <ImageAutoSlider images={sliderImages} speed={28} />
+      </motion.div>
     </section>
   );
 }
