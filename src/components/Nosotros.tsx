@@ -31,10 +31,10 @@ export default function Nosotros() {
   return (
     <section
       id="nosotros"
-      className="py-28 px-6"
+      className="py-16 md:py-28 px-4 md:px-6"
       style={{ background: "linear-gradient(180deg, #080808 0%, #0a0905 50%, #080808 100%)" }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Text */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -46,7 +46,7 @@ export default function Nosotros() {
             Quiénes somos
           </p>
           <h2
-            className="font-heading text-5xl md:text-6xl font-light text-[#F9FAFB] leading-tight mb-7"
+            className="font-heading text-3xl sm:text-5xl md:text-6xl font-light text-[#F9FAFB] leading-tight mb-5 md:mb-7"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Más que un restaurante.

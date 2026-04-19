@@ -67,7 +67,7 @@ export default function Hero() {
           initial={{ opacity: 0, letterSpacing: "0.1em" }}
           animate={{ opacity: 1, letterSpacing: "0.3em" }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-[#E5B21A] text-xs font-medium tracking-[0.3em] uppercase mb-8"
+          className="text-[#E5B21A] text-xs font-medium tracking-[0.3em] uppercase mb-5 md:mb-8"
         >
           Comayagua · Honduras
         </motion.p>
@@ -76,7 +76,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-6xl md:text-8xl font-heading font-light text-[#F9FAFB] leading-[1.05] mb-4"
+          className="text-4xl sm:text-6xl md:text-8xl font-heading font-light text-[#F9FAFB] leading-[1.05] mb-4"
           style={{ fontFamily: "var(--font-playfair)", letterSpacing: "-0.01em" }}
         >
           Donde cada platillo
@@ -88,14 +88,14 @@ export default function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="w-24 h-px bg-gradient-to-r from-transparent via-[#E5B21A] to-transparent mx-auto my-8"
+          className="w-24 h-px bg-gradient-to-r from-transparent via-[#E5B21A] to-transparent mx-auto my-5 md:my-8"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-[#9CA3AF] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+          className="text-[#9CA3AF] text-base md:text-xl max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed font-light"
         >
           Gastronomía gourmet con alma hondureña. Un ambiente que sorprende,
           un servicio que no se olvida.

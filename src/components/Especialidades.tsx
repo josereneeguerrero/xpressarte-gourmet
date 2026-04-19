@@ -96,13 +96,13 @@ export default function Especialidades() {
   const items = dishes.length ? dishes : FALLBACK;
 
   return (
-    <section id="menu" className="py-28 px-6" style={{ background: "linear-gradient(180deg, #080808 0%, #060604 60%, #080808 100%)" }}>
+    <section id="menu" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "linear-gradient(180deg, #080808 0%, #060604 60%, #080808 100%)" }}>
       <div className="max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-16">
           <div>
             <p className="text-[#E5B21A] text-xs tracking-[0.3em] uppercase mb-5 font-medium">Lo mejor de la casa</p>
-            <h2 className="font-heading text-5xl md:text-6xl font-light text-[#F9FAFB]" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-light text-[#F9FAFB]" style={{ fontFamily: "var(--font-playfair)" }}>
               Nuestras <em className="not-italic text-[#E5B21A] font-semibold">Especialidades</em>
             </h2>
           </div>

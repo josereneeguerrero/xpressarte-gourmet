@@ -72,13 +72,13 @@ export default function Galeria() {
   }
 
   return (
-    <section className="py-28 px-6" style={{ background: "linear-gradient(180deg, #080808 0%, #0a0905 50%, #080808 100%)" }}>
+    <section className="py-16 md:py-28 px-4 md:px-6" style={{ background: "linear-gradient(180deg, #080808 0%, #0a0905 50%, #080808 100%)" }}>
       <div className="max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-14">
           <div>
             <p className="text-[#E5B21A] text-xs tracking-[0.3em] uppercase mb-5 font-medium">Tercer nivel · Plaza San Blas</p>
-            <h2 className="font-heading text-5xl md:text-6xl font-light text-[#F9FAFB]" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-light text-[#F9FAFB]" style={{ fontFamily: "var(--font-playfair)" }}>
               Nuestro <em className="not-italic text-[#E5B21A] font-semibold">Ambiente</em>
             </h2>
             <p className="text-[#9CA3AF]/80 mt-4 max-w-md text-base font-light leading-relaxed">
@@ -92,7 +92,7 @@ export default function Galeria() {
         </motion.div>
 
         {/* Editorial grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3" style={{ height: "clamp(460px, 55vw, 600px)" }}>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3" style={{ height: "clamp(300px, 80vw, 600px)" }}>
           <SlotBase className="row-span-2 col-span-1" delay={0}>{renderSlotContent(slots[0], 0)}</SlotBase>
           <SlotBase className="col-span-1 row-span-1" delay={0.1}>{renderSlotContent(slots[1], 1)}</SlotBase>
           <SlotBase className="col-span-1 row-span-1 hidden md:block" delay={0.15}>{renderSlotContent(slots[2], 2)}</SlotBase>

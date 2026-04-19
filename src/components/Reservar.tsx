@@ -97,7 +97,7 @@ export default function Reservar() {
   return (
     <section
       id="contacto"
-      className="py-28 px-6"
+      className="py-16 md:py-28 px-4 md:px-6"
       style={{ background: "linear-gradient(180deg, #080808 0%, #0a0905 50%, #080808 100%)" }}
     >
       <div className="max-w-7xl mx-auto">
@@ -107,14 +107,14 @@ export default function Reservar() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-14"
+          className="mb-10 md:mb-14"
         >
           <p className="text-[#E5B21A] text-xs tracking-[0.3em] uppercase mb-5 font-medium">
             Reserva tu lugar
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h2
-              className="font-heading text-5xl md:text-6xl font-light text-[#F9FAFB] leading-tight"
+              className="font-heading text-3xl sm:text-5xl md:text-6xl font-light text-[#F9FAFB] leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               Reserva tu mesa.{" "}

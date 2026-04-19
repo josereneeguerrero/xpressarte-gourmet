@@ -40,7 +40,7 @@ export default function Testimonios() {
   return (
     <section
       id="resenas"
-      className="py-28 px-6"
+      className="py-16 md:py-28 px-4 md:px-6"
       style={{ background: "linear-gradient(180deg, #080808 0%, #060604 60%, #080808 100%)" }}
     >
       <div className="max-w-6xl mx-auto">
@@ -62,7 +62,7 @@ export default function Testimonios() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mt-16"
+          className="flex flex-wrap justify-center gap-4 mt-10 md:mt-16"
         >
           <a
             href="https://maps.app.goo.gl/dRFrGqADi355DGuY6"
