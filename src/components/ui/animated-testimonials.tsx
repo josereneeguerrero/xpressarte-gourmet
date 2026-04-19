@@ -122,16 +122,15 @@ export function AnimatedTestimonials({
         >
           {/* Decorative corners */}
           <div className="absolute -bottom-5 -left-5 h-20 w-20 rounded-xl bg-[#E5B21A]/5 pointer-events-none" />
-          <div className="absolute -top-5 -right-5 h-20 w-20 rounded-xl bg-[#E5B21A]/5 pointer-events-none" />
 
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
               className="absolute inset-0"
-              initial={{ opacity: 0, x: 80 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{
                 opacity: activeIndex === index ? 1 : 0,
-                x: activeIndex === index ? 0 : 80,
+                x: activeIndex === index ? 0 : 30,
                 scale: activeIndex === index ? 1 : 0.95,
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}

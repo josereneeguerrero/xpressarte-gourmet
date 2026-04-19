@@ -44,7 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${fraunces.variable} ${inter.variable} dark`}>
-      <body className="antialiased bg-[#080808] text-[#F9FAFB]">{children}</body>
+      <body className="antialiased bg-[#080808] text-[#F9FAFB] overflow-x-hidden">{children}</body>
     </html>
   );
 }

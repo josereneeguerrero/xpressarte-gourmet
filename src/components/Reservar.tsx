@@ -142,7 +142,7 @@ export default function Reservar() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Info cards 2×2 */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
+            initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
@@ -163,7 +163,7 @@ export default function Reservar() {
 
           {/* Interactive map */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
