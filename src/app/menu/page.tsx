@@ -85,13 +85,13 @@ function DishCard({
       className="rounded-2xl border border-white/5 hover:border-[#E5B21A]/15 transition-colors duration-200 overflow-hidden flex flex-col"
       style={{ background: "linear-gradient(180deg, #141208 0%, #0f0f0f 100%)" }}
     >
-      <div className="relative w-full aspect-[4/3]">
+      <div className="relative w-full aspect-square">
         {dish.image?.asset ? (
           <Image
-            src={urlFor(dish.image).width(600).height(450).url()}
+            src={urlFor(dish.image).width(600).url()}
             alt={dish.image.alt ?? dish.title}
             fill
-            className="object-cover"
+            className="object-contain"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#1a1508] to-[#0f0f0f] flex items-center justify-center">
