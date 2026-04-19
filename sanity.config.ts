@@ -9,6 +9,9 @@ export default defineConfig({
   projectId: "rtq4kl3c",
   dataset: "production",
   basePath: "/studio",
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool(),
+    ...(process.env.NODE_ENV !== "production" ? [visionTool()] : []),
+  ],
   schema: { types: schemaTypes },
 });

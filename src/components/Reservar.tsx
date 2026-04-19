@@ -181,7 +181,7 @@ export default function Reservar() {
                 filter:
                   "grayscale(60%) invert(90%) hue-rotate(180deg) brightness(0.82) contrast(1.1)",
               }}
-              allowFullScreen
+              sandbox="allow-scripts allow-same-origin"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
