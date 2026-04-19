@@ -39,7 +39,7 @@ export default function Navbar() {
         <a href="#inicio" className="flex items-center gap-3">
           <Image
             src="/images/logo.jpg"
-            alt="XpressArte Gourmet Cuisine"
+            alt="Logo de XpressArte Gourmet Cuisine, restaurante en Comayagua Honduras"
             width={52}
             height={52}
             className="rounded-sm object-cover"

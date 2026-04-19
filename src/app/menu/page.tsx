@@ -89,7 +89,7 @@ function DishCard({
         {dish.image?.asset ? (
           <Image
             src={urlFor(dish.image).width(600).url()}
-            alt={dish.image.alt ?? dish.title}
+            alt={dish.image.alt ?? `${dish.title} — ${CAT_LABEL[dish.category] ?? dish.category} en XpressArte Gourmet Cuisine, Comayagua Honduras`}
             fill
             className="object-contain"
           />

@@ -40,7 +40,7 @@ function PlatilloCard({ dish, index }: { dish: SanityDish; index: number }) {
         {dish.image?.asset ? (
           <Image
             src={urlFor(dish.image).width(600).url()}
-            alt={dish.image.alt ?? dish.title}
+            alt={dish.image.alt ?? `${dish.title} — ${CAT_LABEL[dish.category] ?? dish.category} de XpressArte Gourmet Cuisine, Comayagua`}
             fill
             className="object-contain group-hover:scale-105 transition-transform duration-700"
           />

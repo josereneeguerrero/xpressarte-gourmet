@@ -22,7 +22,7 @@ export default function Hero() {
       <motion.div style={{ y: bgY }} className="absolute inset-0 -top-20">
         <Image
           src="/images/hero-bg.jpg"
-          alt="XpressArte Gourmet Cuisine"
+          alt="Salón principal de XpressArte Gourmet Cuisine en Plaza San Blas, Comayagua Honduras"
           fill
           priority
           className="object-cover object-center"

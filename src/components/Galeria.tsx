@@ -8,12 +8,12 @@ import ReservarButton from "@/components/ReservarButton";
 import { ImageAutoSlider } from "@/components/ui/image-auto-slider";
 
 const FALLBACK_IMAGES = [
-  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=640&q=80", alt: "Ambiente restaurante" },
-  { src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=640&q=80", alt: "Salón principal" },
-  { src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=640&q=80", alt: "Cocina en acción" },
-  { src: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=640&q=80", alt: "Mesa preparada" },
-  { src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=640&q=80", alt: "Vista del restaurante" },
-  { src: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=640&q=80", alt: "Detalle de mesa" },
+  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=640&q=80", alt: "Ambiente elegante de XpressArte Gourmet Cuisine, Comayagua Honduras" },
+  { src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=640&q=80", alt: "Salón principal de XpressArte Gourmet Cuisine en Plaza San Blas" },
+  { src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=640&q=80", alt: "Cocina gourmet de XpressArte, restaurante en Comayagua" },
+  { src: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=640&q=80", alt: "Mesa preparada en XpressArte Gourmet Cuisine, Comayagua" },
+  { src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=640&q=80", alt: "Vista del restaurante XpressArte en el tercer nivel de Plaza San Blas" },
+  { src: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=640&q=80", alt: "Detalle de mesa en XpressArte Gourmet Cuisine, Comayagua Honduras" },
 ];
 
 export default function Galeria() {
