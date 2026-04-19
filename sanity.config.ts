@@ -8,6 +8,7 @@ export default defineConfig({
   title: "XpressArte Gourmet Cuisine",
   projectId: "rtq4kl3c",
   dataset: "production",
+  basePath: "/studio",
   plugins: [structureTool(), visionTool()],
   schema: { types: schemaTypes },
 });
