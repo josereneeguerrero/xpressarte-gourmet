@@ -485,8 +485,7 @@ export default function MenuPage() {
               ))
             ) : (
               <p className="col-span-3 text-center text-[#9CA3AF] py-16 text-sm">
-                Próximamente en esta categoría · Agrega platillos desde el panel admin en{" "}
-                <span className="text-[#E5B21A]/70">/studio</span>
+                Próximamente en esta categoría
               </p>
             )}
           </motion.div>

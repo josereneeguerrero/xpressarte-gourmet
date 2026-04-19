@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { getGalleryImages, type SanityGalleryImage } from "@/sanity/queries";
 import { urlFor } from "@/sanity/image";
+import { CalendarDays } from "lucide-react";
 
 const WA_LINK =
   "https://wa.me/50488738716?text=Hola%20XpressArte%2C%20me%20gustar%C3%ADa%20reservar%20una%20mesa%20para%20...%20persona(s)%20el%20d%C3%ADa%20...%20a%20las%20....%20Mi%20nombre%20es%20...";
@@ -87,7 +88,8 @@ export default function Galeria() {
             </p>
           </div>
           <a href={WA_LINK} target="_blank" rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 bg-[#E5B21A] hover:bg-[#FCD34D] text-[#0A0A0A] font-semibold px-7 py-3 rounded-full text-sm transition-all duration-200 shadow-[0_0_20px_rgba(229,178,26,0.18)]">
+            className="shrink-0 inline-flex items-center gap-2 border border-[#E5B21A]/40 text-[#E5B21A] hover:bg-[#E5B21A]/10 font-semibold px-7 py-3 rounded-full text-sm transition-all duration-200">
+            <CalendarDays size={16} />
             Reservar Mesa
           </a>
         </motion.div>
@@ -122,11 +124,6 @@ export default function Galeria() {
           )}
         </motion.div>
 
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-          className="text-center text-[#9CA3AF]/30 text-xs mt-6">
-          Agrega fotos desde el panel admin en{" "}
-          <span className="text-[#E5B21A]/40">/studio</span>
-        </motion.p>
       </div>
     </section>
   );

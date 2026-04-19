@@ -27,9 +27,16 @@ export const galleryImageSchema = defineType({
     }),
     defineField({
       name: "order",
-      title: "Orden",
+      title: "Posición en galería",
       type: "number",
-      description: "Número menor = aparece primero.",
+      description:
+        "Elige un número del 1 al 5 según dónde quieres que aparezca la foto:\n\n" +
+        "1 → ALTA IZQUIERDA — ocupa toda la altura (ideal foto vertical/portrait)\n" +
+        "2 → CENTRO ARRIBA — tamaño normal (cuadrada o portrait)\n" +
+        "3 → DERECHA ARRIBA — tamaño normal, solo visible en desktop (cuadrada o portrait)\n" +
+        "4 → ANCHA ABAJO — ocupa el doble de ancho (ideal foto horizontal/landscape)\n" +
+        "5 → FRANJA PANORÁMICA — barra ancha en el fondo (ideal foto muy horizontal)\n\n" +
+        "Tip: si subes una foto vertical úsala en posición 1. Si es horizontal/apaisada, ponla en 4 o 5.",
       initialValue: 99,
     }),
   ],
