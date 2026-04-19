@@ -39,10 +39,10 @@ function PlatilloCard({ dish, index }: { dish: SanityDish; index: number }) {
       <div className="relative w-full aspect-square overflow-hidden">
         {dish.image?.asset ? (
           <Image
-            src={urlFor(dish.image).width(600).height(600).fit("crop").crop("center").url()}
+            src={urlFor(dish.image).width(600).url()}
             alt={dish.image.alt ?? dish.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
+            className="object-contain group-hover:scale-105 transition-transform duration-700"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-[#1a1508] to-[#0f0f0f] flex items-center justify-center">
@@ -76,10 +76,10 @@ function PlatilloCard({ dish, index }: { dish: SanityDish; index: number }) {
           <span className="text-[#E5B21A] font-semibold text-xl" style={{ fontFamily: "var(--font-playfair)" }}>
             {dish.price}
           </span>
-          <a href={WA_ORDER} target="_blank" rel="noopener noreferrer"
+          <Link href="/menu"
             className="text-xs text-[#9CA3AF] hover:text-[#E5B21A] border border-white/8 hover:border-[#E5B21A]/30 px-4 py-2 rounded-full transition-all duration-200">
-            Ordenar →
-          </a>
+            Ver menú →
+          </Link>
         </div>
       </div>
     </motion.div>
