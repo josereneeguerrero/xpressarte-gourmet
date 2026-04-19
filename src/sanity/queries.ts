@@ -36,7 +36,7 @@ export async function getAllDishes(): Promise<SanityDish[]> {
 
 export async function getGalleryImages(): Promise<SanityGalleryImage[]> {
   return client.fetch(
-    `*[_type == "galleryImage"] | order(order asc)[0...5] {
+    `*[_type == "galleryImage"] | order(order asc)[0...50] {
       _id, image, caption, order
     }`
   );
