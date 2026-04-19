@@ -73,9 +73,7 @@ export default function Nosotros() {
               Reservar Mesa
             </a>
             <a
-              href="https://www.tripadvisor.es/Restaurant_Review-g292021-d33255687-Reviews-Xpressarte_Gourmet_Cuisine-Comayagua_Comayagua_Department.html"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#resenas"
               className="inline-flex items-center gap-2 border border-[#E5B21A]/25 hover:border-[#E5B21A]/60 text-[#9CA3AF] hover:text-[#E5B21A] px-7 py-3 rounded-full text-sm transition-all duration-200"
             >
               Ver reseñas →
